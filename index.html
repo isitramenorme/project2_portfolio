@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="cursor"></div>
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="logo">PORTFOLIO :)</div>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <p class="subtitle">P S Rashmi - Student Developer</p>
+
+        <h1 class="glow-target">
+          building modern<br />
+          <span>web experiences</span><br />
+          with code
+        </h1>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="container">
+        <p class="section-label">About Me</p>
+
+        <h2 class="section-title glow-target">
+          I’m a student developer focused on building modern, responsive web
+          applications and solving real-world problems through clean and
+          efficient code.
+        </h2>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="container">
+        <p class="section-label">Projects</p>
+
+        <div class="projects-grid">
+          <div class="card">
+            <div class="card-top"></div>
+
+            <div class="card-content">
+              <h3>AI WEB SUMMARIZER</h3>
+              <p>
+                A smart AI tool that converts long articles into short
+                summaries.
+              </p>
+
+              <div class="tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JS</span>
+                <span>AI</span>
+              </div>
+
+              <div class="icons">
+                <i class="fab fa-github"></i>
+                <i class="fas fa-up-right-from-square"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-top"></div>
+
+            <div class="card-content">
+              <h3>MOODYY</h3>
+              <p>A mood tracking web app that helps users record emotions.</p>
+
+              <div class="tags">
+                <span>HTML</span>
+                <span>TAILWIND</span>
+                <span>JS</span>
+              </div>
+
+              <div class="icons">
+                <i class="fab fa-github"></i>
+                <i class="fas fa-up-right-from-square"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <p class="section-label">Skills</p>
+
+        <div class="skills-wrapper">
+          <div class="skill-pill">HTML</div>
+          <div class="skill-pill">CSS</div>
+          <div class="skill-pill">JavaScript</div>
+          <div class="skill-pill">Python</div>
+          <div class="skill-pill">Java</div>
+          <div class="skill-pill">SQL</div>
+          <div class="skill-pill">Git</div>
+          <div class="skill-pill">Tailwind</div>
+          <div class="skill-pill">Responsive Design</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <p class="section-label">Connect</p>
+
+        <div class="contact-icons">
+          <a href="mailto:rashmi26207@gmail.com" class="icon-item">
+            <i class="fas fa-envelope"></i>
+          </a>
+
+          <a href="tel:+919121764498" class="icon-item">
+            <i class="fas fa-phone"></i>
+          </a>
+
+          <a
+            href="https://github.com/isitramenorme"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="icon-item"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/rashmi-p-s"
+            target="_blank"
+            class="icon-item"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>Built with &lt;3</p>
+    </footer>
+
+    <!-- CURSOR -->
+    <script>
+      const cursor = document.querySelector(".cursor");
+
+      let mouseX = 0,
+        mouseY = 0;
+      let currentX = 0,
+        currentY = 0;
+
+      document.addEventListener("mousemove", (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+
+      function animate() {
+        currentX += (mouseX - currentX) * 0.12;
+        currentY += (mouseY - currentY) * 0.12;
+
+        cursor.style.transform = `translate(${currentX}px, ${currentY}px)`;
+
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    </script>
+
+    <!-- GLOW EFFECT -->
+    <script>
+      const targets = document.querySelectorAll(".glow-target");
+
+      document.addEventListener("mousemove", (e) => {
+        targets.forEach((el) => {
+          const rect = el.getBoundingClientRect();
+
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+
+          const dx = e.clientX - centerX;
+          const dy = e.clientY - centerY;
+
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 220) {
+            el.classList.add("glow");
+          } else {
+            el.classList.remove("glow");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
